@@ -4,7 +4,7 @@ import './App.css'
 
 
 function App() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<number>(0);
   const [inputError, setInputError] = useState('')
   const [numberList,setList] =useState<{number:number,result:boolean}>({number:0,result:false})
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
@@ -22,7 +22,8 @@ function App() {
   }
 
   const validate = (value:number) => {  
-    if(value>9999999999||!Number.isInteger(value)||!value){
+    if(value===0){return ''}
+    else if(value>9999999999||!Number.isInteger(value)){
       return 'Input an integer less than 9999999999'
     }
     else return ''
@@ -40,7 +41,7 @@ function App() {
       <p>Please input an integer less than 9999999999:</p>
       <div className='input' >
         <input type="number" name='number' onChange={e=>handleChange(e)}
-        placeholder='input'/>
+        placeholder='0'/>
         <button onClick={e=>handleSubmit(e)}>test</button>
         </div>
         <p className='errorMessage'>{inputError}</p>
