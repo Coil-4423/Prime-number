@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   const [value, setValue] = useState(0);
   const [inputError, setInputError] = useState('')
-  const [numberList,setList] =useState<{number:number,result:boolean|any}>({number:0,result:false})
+  const [numberList,setList] =useState<{number:number,result:boolean}>({number:0,result:false})
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const handleChange =(e: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(Number(e.target.value));
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className='App'>
       <h1>primality test</h1>
-      <p>Please input an integer under 9999999999:</p>
+      <p>Please input an integer less than 9999999999:</p>
       <div className='input' >
         <input type="number" name='number' onChange={e=>handleChange(e)}
         placeholder='input'/>
